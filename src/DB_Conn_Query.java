@@ -50,17 +50,19 @@ public class DB_Conn_Query {
 	        		pstmt.executeUpdate();
 	        pstmt.close();
             // CallableStatement
-//            CallableStatement cstmt = con.prepareCall("{call SP_잠재고객(?)}");
-//            cstmt.registerOutParameter(1, OracleTypes.CURSOR);
-//            cstmt.executeQuery();
-//            rs = (ResultSet)cstmt.getObject(1);
-//            System.out.println("====== 잠재고객 명단입니다.======");
-//            while( rs.next( ) ) {
-//                System.out.println(rs.getString(1)+
-//                        ",\t"+rs.getString(2)); }
+            CallableStatement cstmt = con.prepareCall("{call SP_잠재고객(?)}");
+            cstmt.registerOutParameter(1, OracleTypes.CURSOR);
+            cstmt.executeQuery();
+            rs = (ResultSet)cstmt.getObject(1);
+            System.out.println("====== 잠재고객 명단입니다.======");
+            while( rs.next( ) ) {
+                System.out.println(rs.getString(1)+
+                        ",\t"+rs.getString(2)); }
 
             rs.close();
             con.close();
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
