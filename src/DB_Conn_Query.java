@@ -55,6 +55,9 @@ public class DB_Conn_Query {
             cstmt.executeQuery();
             rs = (ResultSet)cstmt.getObject(1);
             System.out.println("====== 잠재고객 명단입니다.======");
+            System.out.println();
+
+
             while( rs.next( ) ) {
                 System.out.println(rs.getString(1)+
                         ",\t"+rs.getString(2)); }
